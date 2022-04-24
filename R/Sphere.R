@@ -13,6 +13,33 @@
 #' @export
 
 Sphere <- function(m, r, type, axiss) {
+  if (class(m) != "numeric") {
+    stop("You did not supply the m as a numeric.")
+  }
+  if (class(r) != "numeric") {
+    stop("You did not supply the r as a numeric.")
+  }
+
+
+  if (m == 0) {
+    stop("m cannot be 0.")
+  }
+  if (r == 0) {
+    stop("r cannot be 0.")
+  }
+
+
+  if (m < 0) {
+    warning("The m was less than zero, an absolute value will be taken for it.")
+    m <- abs(m)
+  }
+  if (r < 0) {
+    warning("The r was less than zero, an absolute value will be taken for it.")
+    r <- abs(r)
+  }
+
+
+
   if (type == "solid") {
     if (axiss == "diameter") {
       I <- 2 / 5 * m * (r^2)

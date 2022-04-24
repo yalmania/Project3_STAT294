@@ -13,6 +13,42 @@
 #' @export
 
 SolidCylinder <- function(m, r, l, axiss) {
+  if (class(m) != "numeric") {
+    stop("You did not supply the m as a numeric.")
+  }
+  if (class(r) != "numeric") {
+    stop("You did not supply the r as a numeric.")
+  }
+  if (class(l) != "numeric") {
+    stop("You did not supply the l as a numeric.")
+  }
+
+  if (m == 0) {
+    stop("m cannot be 0.")
+  }
+  if (r == 0) {
+    stop("r cannot be 0.")
+  }
+  if (l == 0) {
+    stop("l cannot be 0.")
+  }
+
+  if (m < 0) {
+    warning("The m was less than zero, an absolute value will be taken for it.")
+    m <- abs(m)
+  }
+  if (r < 0) {
+    warning("The r was less than zero, an absolute value will be taken for it.")
+    r <- abs(r)
+  }
+  if (l < 0) {
+    warning("The l was less than zero, an absolute value will be taken for it.")
+    l <- abs(l)
+  }
+
+
+
+
   if (axiss == "geometrical axis") {
     I <- 0.5 * m * (r^2)
   }
