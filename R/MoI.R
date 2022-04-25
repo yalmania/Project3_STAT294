@@ -13,5 +13,6 @@
 #' @docType package
 #' @name MoI
 #' @import qpdf
+#' @import rlang
 #'
 NULL
